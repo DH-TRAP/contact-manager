@@ -1,0 +1,41 @@
+.add-contact{
+    padding: 1rem 10rem;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
+}
+.title{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+.name{
+    font-size: 1rem;
+}
+label{
+    width: 37rem;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+input{
+    padding: .5rem;
+    height: 1.5rem;
+    width: 30rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 .15rem gray;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.btn-add-contact{
+    height: 2rem; width: 3.5rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: blue;
+}
