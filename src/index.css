@@ -1,0 +1,16 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+main{
+    font-family:'Segoe UI', Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+}
+button{
+    cursor: pointer;
+}
