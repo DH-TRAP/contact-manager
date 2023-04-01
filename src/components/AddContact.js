@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import '../styles/AddContact.css';
 
-const AddContact = () => {
+const AddContact = (props) => {
     const [contact, setContact] = useState({})
- 
+
     function getDetails(e){
       e.preventDefault();
-      console.log(contact);
+      props.AddContactHandler(contact);
     }
     
     function getValue(e){
