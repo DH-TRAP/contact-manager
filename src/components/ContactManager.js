@@ -1,4 +1,4 @@
-import './styles/ContactManager.css';
+import '../styles/ContactManager.css';
 import React from 'react';
 import Heading from './Heading';
 import AddContact from './AddContact';

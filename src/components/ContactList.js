@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/ContactList.css';
+import '../styles/ContactList.css';
 import ContactCard from './ContactCard';
 
 const ContactList = (props) => {
@@ -14,7 +14,7 @@ const ContactList = (props) => {
     <div id='ContactList'>
         {renderContactList}
         <button className='save'>
-            <img src={require("./images/save.png")} alt="Image not found!" />
+            <img src={require("../images/save.png")} alt="Image not found!" />
         </button>   
     </div>
     );

@@ -1,4 +1,4 @@
-import './styles/Heading.css';
+import '../styles/Heading.css';
 
 const Heading = () => {
     return(
