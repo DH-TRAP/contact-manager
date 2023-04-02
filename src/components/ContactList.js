@@ -3,11 +3,11 @@ import '../styles/ContactList.css';
 import ContactCard from './ContactCard';
 
 const ContactList = (props) => {
-    const renderContactList = props.contacts.map((contact) => {
+    const renderContactList = props.contacts.map((contact, i) => {
         return(
-            <>
+            <div key={i}>
             <ContactCard contact={contact}/>
-            </>
+            </div>
         )
     })
     return(

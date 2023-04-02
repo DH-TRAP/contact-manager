@@ -6,7 +6,8 @@ const AddContact = (props) => {
 
     function getDetails(e){
       e.preventDefault();
-      props.AddContactHandler(contact);
+      if(contact.name && contact.phone && contact.email) props.AddContactHandler(contact);
+      else alert("All the details are mandatory!")
     }
     
     function getValue(e){
@@ -15,6 +16,7 @@ const AddContact = (props) => {
         [e.target.name]:  e.target.value
       })
     }
+    
     return(
         <div id='add-contact'>
         <form onSubmit={getDetails}>

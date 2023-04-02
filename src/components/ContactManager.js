@@ -5,12 +5,14 @@ import AddContact from './AddContact';
 import ContactList from './ContactList';
 
 const ContactManager = () => {
-    const [contacts, setContacts] = useState([]);
-
-    const AddContactHandler = (contact) =>{
+    let [contacts, setContacts] = useState([]);
+    
+    let AddContactHandler = (contact) =>{
         console.log(contact);
         setContacts([...contacts, contact]);
     }
+    
+    
     return( 
         <main>
         <Heading />
@@ -21,3 +23,14 @@ const ContactManager = () => {
 }
 
 export default ContactManager;
+
+
+// useEffect(() => {
+//     const retriveContacts = JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_KEY));
+//     if(retriveContacts) { setContacts(retriveContacts) }
+// }, []);
+
+// const LOCAL_STORAGE_KEY = "contacts";
+// useEffect(() => {
+//     window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+// });
