@@ -1,43 +1,63 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../styles/AddContact.css';
 
-const AddContact = (props) => {
-    const [contact, setContact] = useState({})
-
-    function getDetails(e){
+class AddContact extends React.Component {
+// State to maintain contact details.
+    state = {
+        name: "",
+        phone:"",
+        email:""
+    };
+// Function to add contact details on submit.
+    getDetails = (e) => {
       e.preventDefault();
-      if(contact.name && contact.phone && contact.email) props.AddContactHandler(contact);
+      if(this.state.name && this.state.phone && this.state.email) {        
+        this.props.AddContactHandler(this.state);
+        this.setState({ name:"", phone:"", email:"" });
+      }
       else alert("All the details are mandatory!")
-    }
-    
-    function getValue(e){
-      setContact ({
-        ...contact,
-        [e.target.name]:  e.target.value
-      })
-    }
-    
-    return(
-        <div id='add-contact'>
-        <form onSubmit={getDetails}>
+    }    
+    render(){
+        return(
+            <div id='add-contact'>
+        <form onSubmit={this.getDetails}>
             <div className="operation-title"> Add Contact </div>
             <div className='user-input'>
                 <label className='name'>Name 
-                    <input type="text" name="name" placeholder='Name' onChange={getValue}/> 
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder='Name' 
+                    value={this.state.name}
+                    onChange={(e) => this.setState({ name: e.target.value })}
+                /> 
                 </label>
 
                 <label className='phone'>Phone 
-                    <input type="number" name="phone" placeholder='Phone Number' onChange={getValue}/> 
+                <input 
+                    type="number" 
+                    name="phone" 
+                    placeholder='Phone Number' 
+                    value={this.state.phone}
+                    onChange={(e) => this.setState({ phone: e.target.value })}
+                />  
                 </label>
                 
                 <label className='email'>Email 
-                    <input type="email" name="email" placeholder='E-Mail ID' onChange={getValue}/> 
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder='Email ID' 
+                    value={this.state.email}
+                    onChange={(e) => this.setState({ email: e.target.value })}
+                />  
                 </label>
             </div>
             <button type="submit" className='btn-add-contact'> ADD </button>
         </form>
         </div>
-    );
+        );
+    }
 }
 
 export default AddContact;

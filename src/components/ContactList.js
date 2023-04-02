@@ -3,11 +3,18 @@ import '../styles/ContactList.css';
 import ContactCard from './ContactCard';
 
 const ContactList = (props) => {
-    const renderContactList = props.contacts.map((contact, i) => {
+// callback function to pass id.
+    const deleteContactHandler = (id) => {
+        props.getContactId(id);
+      };
+// rendering all contacts from 'contacts' state.
+    const renderContactList = props.contacts.map((contact) => {
         return(
-            <div key={i}>
-            <ContactCard contact={contact}/>
-            </div>
+            <ContactCard 
+                contact={contact} 
+                clickHandler={deleteContactHandler} 
+                key={contact.id}
+            />
         )
     })
     return(
