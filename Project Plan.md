@@ -8,7 +8,7 @@ Title: Add Contact
 Input fields: Name, Phone, Email
 Button: Add
 
-# DisplayContact
+# ContactList
 Display: contact image, name, phone, and email.
 Buttons: Upadate and delete.
 ## save contacts

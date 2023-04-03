@@ -4,9 +4,7 @@
   border: none;
   outline: none;
   background-color: transparent;
-}
-html{
-  font-size: 86%;
+  font-size: 1.3rem;
 }
 img{
   user-select: none;
@@ -21,4 +19,60 @@ main{
   font-size: 1rem;
   font-weight: 500;
   color: black;
+}
+
+/* Media Queries: Supported on almost all Android smartphones and tablets */
+/* Watch - 162px */
+@media (min-width: 0px) and (max-width: 162px) {
+  html {
+      font-size: 7.9%;  
+  }
+}
+/* Mobile S - 320px */
+@media (min-width: 163px) and (max-width: 320px) {
+  html {
+      font-size: 20%;  
+  }
+}
+/* Mobile M - 375px */
+@media (min-width: 321px) and (max-width: 375px) {
+  html {
+      font-size: 23.5%;  
+  }
+}
+/* Mobile L - 425px */
+@media (min-width: 376px) and (max-width: 425px) {
+  html {
+      font-size: 26.5%;
+  }
+}
+/* Tablet - 768px */
+@media (min-width: 426px) and (max-width: 768px) {
+  html {
+      font-size: 48%;
+  }
+}
+/* Laptop S - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+      font-size: 65%;
+  }
+}
+/* Laptop M - 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  html {
+      font-size: 66.6%;
+  }
+}
+/* Laptop L - 1536px */
+@media (min-width: 1441px) and (max-width: 1540px) {
+  html {
+      font-size: 95%;
+  }
+}
+/* 4K- 2560px */
+@media (min-width: 1541px) and (max-width: 2560px) {
+  html {
+      font-size: 161%;
+  }
 }
