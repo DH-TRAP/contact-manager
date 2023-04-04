@@ -7,34 +7,33 @@ import ContactList from './ContactList';
 
 // Main Application
 const ContactManager = () => {
-    const [contacts, setContacts] = useState([]);
     const LOCAL_STORAGE_KEY = "Contacts"
-// Callback to catch and add contact details from 'AddContact' component to 'contacts' state.
-    const AddContactHandler = (contact) =>{
+    // hook to retrive contacts from local storage.
+    const [contacts, setContacts] = useState((
+        JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []
+    ))
+    // Callback to catch and add contact details from 'AddContact' component to 'contacts' state.
+    const AddContactHandler = (contact) => {
         setContacts([...contacts, { id: uuid(), ...contact }]);
     }
-// Callback to catch id from 'ContactList' component and remove contact with that id.
+    // Callback to catch id from 'ContactList' component and remove contact with that id.
     const removeContactHandler = (id) => {
         const copyContactList = contacts.filter((contact) => {
             return contact.id !== id;
         });
         setContacts(copyContactList);
     }
-// Hook to Retrive contacts from local storage when user refreshes the page.
+
+    // Hook to Store Contacts in local storage.
     useEffect(() => {
-        const retriveContacts = JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_KEY));
-        if (retriveContacts) setContacts(retriveContacts);
-    }, []);
-// Hook to Store Contacts in local storage.
-    useEffect(() => {
-        window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
     }, [contacts]);
 
-    return( 
+    return (
         <main>
-        <Heading />
-        <AddContact AddContactHandler={AddContactHandler}/>
-        <ContactList contacts={contacts} getContactId={removeContactHandler} />
+            <Heading />
+            <AddContact AddContactHandler={AddContactHandler} />
+            <ContactList contacts={contacts} getContactId={removeContactHandler} />
         </main>
     );
 }

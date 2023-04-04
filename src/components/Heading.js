@@ -1,11 +1,11 @@
 import '../styles/Heading.css';
 
 const Heading = () => {
-    return(
+    console.count("Heading: ");
+    return (
         <header>
             Contact Manager
         </header>
     );
 }
-
 export default Heading;
