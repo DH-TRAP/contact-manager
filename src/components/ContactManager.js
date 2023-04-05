@@ -14,7 +14,7 @@ const ContactManager = () => {
     ))
     // Callback to catch and add contact details from 'AddContact' component to 'contacts' state.
     const AddContactHandler = (contact) => {
-        setContacts([...contacts, { id: uuid(), ...contact }]);
+        setContacts([{ id: uuid(), ...contact }, ...contacts]);
     }
     // Callback to catch id from 'ContactList' component and remove contact with that id.
     const removeContactHandler = (id) => {
@@ -23,17 +23,20 @@ const ContactManager = () => {
         });
         setContacts(copyContactList);
     }
+    // Callback to save contacts on click event.
+    const saveContactHandler = (save) => {
+        if (save) {
+            // Hook to Store Contacts in local storage.
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+        }
+    }
 
-    // Hook to Store Contacts in local storage.
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-    }, [contacts]);
 
     return (
         <main>
             <Heading />
             <AddContact AddContactHandler={AddContactHandler} />
-            <ContactList contacts={contacts} getContactId={removeContactHandler} />
+            <ContactList contacts={contacts} getContactId={removeContactHandler} save={saveContactHandler} />
         </main>
     );
 }

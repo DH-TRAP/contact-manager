@@ -23,7 +23,7 @@ const ContactList = (props) => {
     return (
         <div id='ContactList'>
             {renderContactList}
-            <button className='save'>
+            <button onClick={() => props.save(true)} className='save'>
                 <img src={require("../images/save.png")} alt="Image not found!" />
             </button>
         </div>
