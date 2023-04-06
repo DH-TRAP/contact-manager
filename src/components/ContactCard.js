@@ -2,8 +2,6 @@ import React from 'react'
 import '../styles/ContactCard.css';
 
 const ContactCard = (props) => {
-  console.count("contact card: ");
-
   const { id, name, phone, email } = props.contact;
 
   return (
@@ -18,9 +16,6 @@ const ContactCard = (props) => {
         </div>
       </div>
       <div className='operations'>
-        <button className='edit'>
-          <img src={require("../images/edit.png")} alt="Image not found!" />
-        </button>
         <button className='delete' onClick={() => props.clickHandler(id)}>
           <img src={require("../images/delete.png")} alt="Image not found!" />
         </button>

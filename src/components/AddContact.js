@@ -11,14 +11,17 @@ class AddContact extends React.Component {
     // Function to add contact details on submit.
     getDetails = (e) => {
         e.preventDefault();
+        // Checking whether fields are empty.
         if (this.state.name && this.state.phone && this.state.email) {
+            // Passing Contact details to Contact Manager component.
             this.props.AddContactHandler(this.state);
+            // Clearing Input Fields.
             this.setState({ name: "", phone: "", email: "" });
         }
         else alert("All the details are mandatory!")
     }
+
     render() {
-        console.count("addcontact: ");
         return (
             <div id='add-contact'>
                 <form onSubmit={this.getDetails}>

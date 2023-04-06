@@ -3,8 +3,6 @@ import '../styles/ContactList.css';
 import ContactCard from './ContactCard';
 
 const ContactList = (props) => {
-    console.count("contact list: ");
-
     // callback function to pass id.
     const deleteContactHandler = (id) => {
         props.getContactId(id);

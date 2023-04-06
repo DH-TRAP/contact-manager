@@ -71,7 +71,7 @@ main {
 /* Laptop M - 1440px */
 @media (min-width: 1025px) and (max-width: 1440px) {
   html {
-    font-size: 66.6%;
+    font-size: 90%;
   }
 }
 
@@ -82,9 +82,16 @@ main {
   }
 }
 
-/* 4K- 2560px */
-@media (min-width: 1541px) and (max-width: 2560px) {
+/* 4K- 1920px */
+@media (min-width: 1541px) and (max-width: 1920px) {
   html {
-    font-size: 121%;
+    font-size: 120%;
+  }
+}
+
+/* 4K- 2560px */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  html {
+    font-size: 160%;
   }
 }
