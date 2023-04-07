@@ -9,7 +9,6 @@ const ContactCard = (props) => {
       <div className='details'>
         <img className="contact-picture" src={require("../images/user-avatar.png")} alt="Image not found!" />
         <div>
-          <span>ID: {id} </span>
           <span>Name: {name} </span>
           <span>Phone: {phone} </span>
           <span>Email: {email} </span>
