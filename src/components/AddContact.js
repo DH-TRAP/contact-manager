@@ -8,17 +8,31 @@ class AddContact extends React.Component {
         phone: "",
         email: ""
     };
+
     // Function to add contact details on submit.
     getDetails = (e) => {
         e.preventDefault();
         // Checking whether fields are empty.
         if (this.state.name && this.state.phone && this.state.email) {
-            // Passing Contact details to Contact Manager component.
-            this.props.AddContactHandler(this.state);
-            // Clearing Input Fields.
-            this.setState({ name: "", phone: "", email: "" });
+            if (this.props.editMode) {
+                this.props.EditContactHandler(this.props.editContactId, this.state);
+                // Clearing Input Fields.
+                this.setState({ name: "", phone: "", email: "" });
+                this.props.showContact.name = '';
+                this.props.showContact.phone = '';
+                this.props.showContact.email = '';
+            }
+            else {
+                // Passing Contact details to Contact Manager component.
+                this.props.AddContactHandler(this.state);
+                // Clearing Input Fields.
+                this.setState({ name: "", phone: "", email: "" });
+                this.props.showContact.name = '';
+                this.props.showContact.phone = '';
+                this.props.showContact.email = '';
+            }
         }
-        else alert("All the details are mandatory!")
+        else alert("All the details are mandatory! ")
     }
 
     render() {
@@ -32,7 +46,7 @@ class AddContact extends React.Component {
                                 type="text"
                                 name="name"
                                 placeholder='Name'
-                                value={this.state.name}
+                                value={this.state.name || this.props.showContact.name}
                                 onChange={(e) => this.setState({ name: e.target.value })}
                             />
                         </label>
@@ -42,7 +56,7 @@ class AddContact extends React.Component {
                                 type="number"
                                 name="phone"
                                 placeholder='Phone Number'
-                                value={this.state.phone}
+                                value={this.state.phone || this.props.showContact.phone}
                                 onChange={(e) => this.setState({ phone: e.target.value })}
                             />
                         </label>
@@ -52,14 +66,14 @@ class AddContact extends React.Component {
                                 type="email"
                                 name="email"
                                 placeholder='Email ID'
-                                value={this.state.email}
+                                value={this.state.email || this.props.showContact.email}
                                 onChange={(e) => this.setState({ email: e.target.value })}
                             />
                         </label>
                     </div>
-                    <button type="submit" className='btn-add-contact'> ADD </button>
+                    <button type="submit" className='btn-add-contact' style={{ width: this.props.editMode ? "5rem" : "3.5rem" }}>{this.props.editMode ? 'UPDATE' : 'ADD'}</button>
                 </form>
-            </div>
+            </div >
         );
     }
 }

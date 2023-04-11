@@ -8,6 +8,13 @@ const ContactList = (props) => {
         props.getContactId(id);
     };
 
+    const passEditId = (id) => {
+        props.update(id);
+    };
+    const editMode = (mode) => {
+        props.passEditMode(mode);
+    };
+
     // rendering all contacts from 'contacts' state.
     const renderContactList = props.contacts.map((contact) => {
         return (
@@ -15,6 +22,8 @@ const ContactList = (props) => {
                 contact={contact}
                 clickHandler={deleteContactHandler}
                 key={contact.id}
+                editId={passEditId}
+                editMode={editMode}
             />
         )
     })
