@@ -39,7 +39,7 @@ class AddContact extends React.Component {
         return (
             <div id='add-contact'>
                 <form onSubmit={this.getDetails}>
-                    <div className="operation-title"> Add Contact </div>
+                    <div className="operation-title">{this.props.editMode ? 'Update' : 'Add'} Contact </div>
                     <div className='user-input'>
                         <label className='name'>Name
                             <input
