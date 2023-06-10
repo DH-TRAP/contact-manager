@@ -1,7 +1,7 @@
 import '../styles/ContactManager.css';
 import React, { useState } from 'react';
 import { v4 as uuid } from "uuid";
-import Heading from './Heading';
+import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 
@@ -21,13 +21,13 @@ const ContactManager = () => {
     }
 
     // State to show edit contact.
-    const [showContact, setShowContact] = useState([]);
+    const [EditContact, setEditContact] = useState([]);
     const updateContactHandler = (id) => {
         setEditContactId(id);
         const newContactList = contacts.filter((contact) => {
             return contact.id == id;
         });
-        return setShowContact(newContactList[0]);
+        return setEditContact(newContactList[0]);
     }
     // State to change add button to update button.
     const [editMode, setEditMode] = useState(0);
@@ -72,8 +72,8 @@ const ContactManager = () => {
     }
     return (
         <main>
-            <Heading />
-            <AddContact AddContactHandler={AddContactHandler} EditContactHandler={EditContactHandler} showContact={showContact} editMode={editMode} editContactId={editContactId} />
+            <Header />
+            <AddContact AddContactHandler={AddContactHandler} EditContactHandler={EditContactHandler} EditContact={EditContact} editMode={editMode} editContactId={editContactId} />
             <ContactList contacts={contacts} getContactId={removeContactHandler} save={saveContactHandler} update={updateContactHandler} passEditMode={EditModeHandler} />
         </main>
     );
